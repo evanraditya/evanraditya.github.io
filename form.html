@@ -8,32 +8,171 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Business Casual - Start Bootstrap Theme</title>
+  <title>Form Pendaftaran</title>
+
+
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/business-casual.css" rel="stylesheet">
+
+  <!-- jquery dan cssnya-->
+  <style>
+    style.css .label {
+      float: left;
+      width: 120px;
+    }
+
+    .infobox {
+      width: 120px;
+    }
+
+    .error {
+      color: red;
+      padding-left: 10px;
+    }
+
+    .submit {
+      margin-left: 125px;
+      margin-top: 10px;
+    }
+
+    div {
+      padding: 5px;
+    }
+
+    .chkb {
+      margin-left: 125px;
+      margin-top: 10px;
+    }
+
+    .radiobtn {
+      margin-left: 125px;
+      margin-top: 10px;
+    }
+  </style>
+  <script src="jquery-1[1].3.2.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script src="jquery-1[1].3.2.js" type="text/javascript"></script>
+  <script src="d1.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.error').hide();
+      $('.fooderror').addClass('error');
+      $('.fooderror').hide();
+      $('.payerror').addClass('error');
+      $('.payerror').hide();
+      $('.submit').click(function (event) {
+        var data = $('.userid').val();
+        if (validate_userid(data)) {
+          $('.userid').next().hide();
+        }
+        else {
+          $('.userid').next().show();
+        }
+        data = $('.password').val();
+        var len = data.length;
+        if (len < 1) {
+          $('.password').next().show();
+        }
+        else {
+          $('.password').next().hide();
+        }
+        data = $('.emailadd').val();
+        if (valid_email(data)) {
+          $('.emailadd').next().hide();
+        }
+        else {
+          $('.emailadd').next().show();
+        }
+        var count = 0;
+        $('div').find(':checkbox').each(function () {
+          if ($(this).is(':checked')) {
+            count++;
+          }
+        });
+        if (count == 0) {
+          $('.fooderror').css({ 'margin-left': 250 }).show();
+        }
+        else {
+          $('.fooderror').hide();
+        }
+        count = 0;
+        $('div').find(':radio').each(function () {
+          if ($(this).is(':checked')) {
+            count++;
+          }
+        });
+        if (count == 0) {
+          $('.payerror').css({ 'margin-left': 250 }).show();
+        }
+        else {
+          $('.payerror').hide();
+        }
+        count = $('select option:selected').val();
+        if (count == 0) {
+          $('.infobox').next().show();
+        }
+        else {
+          $('.infobox').next().hide();
+        }
+        event.preventDefault();
+      });
+    });
+    function valid_email(email) {
+      var pattern = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+      return pattern.test(email);
+    }
+    function validate_userid(uid) {
+      var pattern = new RegExp(/^[a-z0-9_]+$/);
+      return pattern.test(uid);
+    }
+  </script>
+
+  <!--datepicker-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Display month &amp; year menus</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+
+
 
 </head>
 
 <body>
 
   <h1 class="site-heading text-center text-black d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-    <span class="site-heading-lower">Business Casual</span>
+    <span class="site-heading-lower text-primary mb-3">Algorithm</span>
+    <span class="site-heading-upper text-primary mb-3"> </span>
+    <span class="site-heading-upper ">Bimbel terpercaya untuk pelajar</span>
   </h1>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
       <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -60,19 +199,48 @@
     </div>
   </nav>
 
+
+
   <section class="page-section about-heading">
     <div class="container">
-      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/about.jpg" alt="">
       <div class="about-heading-content">
         <div class="row">
           <div class="col-xl-9 col-lg-10 mx-auto">
             <div class="bg-faded rounded p-5">
               <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                <span class="section-heading-lower">About Our Cafe</span>
+                <span class="section-heading-upper">Form Pendaftaran</span>
+                <span class="section-heading-lower">Bimbel Algorithm</span>
               </h2>
-              <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-              <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
+              <form>
+                <div> <span class="label">Nama Lengkap </span><input type="text" class="userid" name="userid" /><span
+                    class="error">User id can contain only numeral, character or
+                    _(underscore)</span></div>
+                <div><span class="label">Tanggal Lahir </span><input type="text" id="datepicker"><span
+                    class="error"> Password cannot be blank</span></div>
+                <div><span class="label">Email Address </span><input type="text" class="emailadd" name="emailid" /><span
+                    class="error"> Invalid email address</span></div>
+                <div><span class="label">Select Food items</span><br><input type="checkbox" id="pizza" name="pizza"
+                    value=5 class="chkb">Pizza $5 <br>
+                  <input type="checkbox" id="hotdog" name="hotdog" value=2 class="chkb">HotDog $2<br>
+                  <input type="checkbox" id="coke" name="coke" value=1 class="chkb">Coke $1<br>
+                  <input type="checkbox" id="fries" name="fries" value=3 class="chkb">French Fries $3<br>
+                  <span class="fooderror">You have not selected any food item</span></div>
+                <div><span class="label">Mode of Payment</span><br><input type="radio" name="paymode" class="radiobtn"
+                    value="MasterCard">MasterCard <br>
+                  <input type="radio" name="paymode" class="radiobtn" value="ANZ Grindlay Card">ANZ Grindlay
+                  Card<br>
+                  <input type="radio" name="paymode" class="radiobtn" value="Visa Card">Visa Card<br>
+                  <span class="payerror">You have not selected any payment method</span></div>
+                <div><span class="label">Country</span><select id="country" class="infobox">
+                    <option value="0">Select a Country</option>
+                    <option value="USA">USA</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                  </select>
+                  <span class="error"> Please select the country</span></div>
+                <input class="submit" type="submit" value="Submit">
+              </form>
             </div>
           </div>
         </div>

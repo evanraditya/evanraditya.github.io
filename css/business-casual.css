@@ -6,9 +6,10 @@
 
 body {
   font-family: 'Lora';
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
   background-size: cover;
+  background-image:url("../img/brown-paper-texture-background.jpg");
 }
 
 h1,
@@ -39,12 +40,12 @@ p {
 .site-heading .site-heading-upper {
   display: block;
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 450;
 }
 
 .site-heading .site-heading-lower {
   font-size: 5rem;
-  font-weight: 100;
+  font-weight: 800;
   line-height: 4rem;
 }
 
@@ -229,7 +230,7 @@ p {
 }
 
 .text-primary {
-  color: #e6a756 !important;
+  color:brown !important;
 }
 
 .bg-primary {
