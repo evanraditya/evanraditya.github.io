@@ -28,6 +28,32 @@
   <!-- Custom styles for this template -->
   <link href="css/business-casual.css" rel="stylesheet">
 
+  <!--script untuk mendapatkan informasi lebih lanjut-->
+  <script src="jquery-1[1].3.2.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script src="jquery-1[1].3.2.js" type="text/javascript"></script>
+  <script src="d1.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.error').hide();
+      $('.submit').click(function (event) {
+        var data = $('.nama').val();
+        var len = data.length;
+        if (len < 1) {
+          $('.nama').next().show();
+        }
+        else {
+          $('.nama').next().hide();
+        }
+      });
+    });
+    function valid_email(email) {
+      var pattern = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+      return pattern.test(email);
+    }
+  </script>
+
 </head>
 
 <body>
@@ -147,17 +173,17 @@
                   <form>
                     <div>
                       <span class="label">Nama Anda: </span>
-                      <input type="nama" class="form-control" id="nama" placeholder="Masukkan Nama Anda"
-                        name="nama"><span class="error"> Nama Anda tidak boleh kosong</span>
+                      <input type="text" class="nama" id="nama" placeholder="Masukkan Nama Anda"
+                        name="error"><span class="error" id="nama"> Nama Anda tidak boleh kosong</span>
                     </div>
                     <div>
                       <label for="email">Email:</label>
-                      <input type="email" class="form-control" id="email" placeholder="Masukkan Email"
-                        name="email"><span class="error"> Email tidak boleh kosong</span>
+                      <input type="text" class="form-control" id="email" placeholder="Masukkan Email" name="email"><span
+                        class="error"> Email tidak boleh kosong</span>
                     </div>
                     <div>
                       <label for="nohp">Nomor HP (opsional)</label>
-                      <input type="nohp" class="form-control" id="nohp" placeholder="Masukkan Nomor HP" name="nohp">
+                      <input type="text" class="form-control" id="nohp" placeholder="Masukkan Nomor HP" name="nohp">
                     </div>
                     <div>
                       <label for="pesan">Pesan </label>
@@ -174,55 +200,7 @@
     </div>
   </section>
 
-  <!--script untuk mendapatkan informasi lebih lanjut-->
-  <script>
-    $(document).ready(function () {
-      $('.error').hide();
-      $('.submit').click(function (event) {
-        var data = $('.nama').val();
-        if (validate_nama(data)) {
-          $('.nama').next().hide();
-        }
-        else {
-          $('.nama').next().show();
-        }
-        data = $('.email').val();
-        if (valid_email(data)) {
-          $('.email').next().hide();
-        }
-        else {
-          $('.email').next().show();
-        }
-        data = $('.password').val();
-        var len = data.length;
-        if (len < 1) {
-          $('.password').next().show();
-        }
-        else {
-          $('.password').next().hide();
-        }
-        data = $('.pesan').val();
-        if (validate_pesan(data)) {
-          $('.pesan').next().hide();
-        }
-        else {
-          $('.pesan').next().show();
-        }
-      })
-    });
-    function valid_email(email) {
-      var pattern = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
-      return pattern.test(email);
-    }
-    function validate_nama(nama) {
-      var pattern = new RegExp(/^[a-z0-9_]+$/);
-      return pattern.test(nama);
-    }
-    function validate_pesan(nama) {
-      var pattern = new RegExp(/^[a-z0-9_]+$/);
-      return pattern.pesan(nama);
-    }
-  </script>
+
 
   <style>
     style.css .label {
