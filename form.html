@@ -75,7 +75,7 @@
   <script src="jquery-1[1].3.2.js" type="text/javascript"></script>
   <script src="d1.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!--<script>
+  <script>
     $(document).ready(function () {
       $('.error').hide();
       $('.fooderror').addClass('error');
@@ -147,7 +147,7 @@
       var pattern = new RegExp(/^[a-z0-9_]+$/);
       return pattern.test(uid);
     }
-  </script>-->
+  </script>
 
   <!--datepicker
   <meta charset="utf-8">
@@ -224,7 +224,8 @@
               <form>
                 <div> <span class="label">Nama Lengkap </span><input type="text" class="userid" name="userid" /><span
                     class="error">Nama tidak boleh kosong</span></div>
-                <div><span class="label">Tanggal Lahir </span><input type="text" id="datepicker"><span class="error">
+                <div><span class="label">Tanggal Lahir </span><input type="text" class="password"
+                  name="password" /><span class="error">
                     Tanggal lahir tidak boleh kosong</span></div>
                 <div><span class="label">No. Telepon </span><input type="text" class="emailadd" name="noTelp" /><span
                     class="error"> Nomor telepon tidak boleh kosong</span></div>
